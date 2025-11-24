@@ -52,7 +52,7 @@ export default function TestMetrics() {
         <div className="min-h-screen bg-gray-900 p-8">
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-3xl font-bold text-white mb-6">Test Metrics Collection</h1>
-                
+
                 <div className="bg-gray-800 rounded-lg p-6 mb-4">
                     <div className="flex gap-4 mb-6">
                         <button
