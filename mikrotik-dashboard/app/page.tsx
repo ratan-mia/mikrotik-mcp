@@ -66,15 +66,27 @@ export default function Home() {
     const loadData = async () => {
         setLoading(true);
         try {
-            const response = await fetch('/api/router/status');
+            console.log('Fetching router status...');
+            const response = await fetch('/api/router/status', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            console.log('Response status:', response.status);
+
             if (response.ok) {
                 const data = await response.json();
+                console.log('Received data:', data);
                 setSystemInfo(data.system || systemInfo);
                 setDevices(data.devices || []);
                 setInterfaces(data.interfaces || []);
+            } else {
+                console.error('Response not OK:', response.status, response.statusText);
             }
         } catch (error) {
             console.error('Failed to load data:', error);
+            console.error('Error details:', error instanceof Error ? error.message : String(error));
         } finally {
             setLoading(false);
         }
@@ -129,8 +141,8 @@ export default function Home() {
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
                             className={`flex items-center space-x-2 px-4 py-3 border-b-2 transition ${activeTab === tab.id
-                                    ? 'border-blue-500 text-blue-500'
-                                    : 'border-transparent text-slate-400 hover:text-white'
+                                ? 'border-blue-500 text-blue-500'
+                                : 'border-transparent text-slate-400 hover:text-white'
                                 }`}
                         >
                             <tab.icon className="h-4 w-4" />
@@ -208,8 +220,8 @@ export default function Home() {
                                                 <td className="py-3">{iface.name}</td>
                                                 <td className="py-3">
                                                     <span className={`inline-flex items-center px-2 py-1 rounded text-xs ${iface.running
-                                                            ? 'bg-green-500/20 text-green-400'
-                                                            : 'bg-red-500/20 text-red-400'
+                                                        ? 'bg-green-500/20 text-green-400'
+                                                        : 'bg-red-500/20 text-red-400'
                                                         }`}>
                                                         {iface.running ? 'Running' : 'Stopped'}
                                                     </span>
@@ -280,8 +292,8 @@ export default function Home() {
                                     <div className="flex items-center justify-between mb-3">
                                         <h3 className="text-lg font-semibold text-white">{iface.name}</h3>
                                         <span className={`px-2 py-1 rounded text-xs ${iface.running
-                                                ? 'bg-green-500/20 text-green-400'
-                                                : 'bg-red-500/20 text-red-400'
+                                            ? 'bg-green-500/20 text-green-400'
+                                            : 'bg-red-500/20 text-red-400'
                                             }`}>
                                             {iface.running ? 'Active' : 'Inactive'}
                                         </span>
