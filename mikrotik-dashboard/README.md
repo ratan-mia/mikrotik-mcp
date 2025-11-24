@@ -25,10 +25,10 @@ Edit the router configuration in `app/api/router/status/route.ts`:
 
 ```typescript
 const ROUTER_CONFIG = {
-  host: '202.84.44.49',
+  host: "202.84.44.49",
   port: 22,
-  username: 'Admin115',
-  password: '@dminAhL#',
+  username: "Admin115",
+  password: "@dminAhL#",
 };
 ```
 
@@ -50,23 +50,27 @@ npm run start
 ## Features Overview
 
 ### Dashboard
+
 - System uptime and version
 - CPU and memory usage
 - Active connections count
 - Interface traffic statistics
 
 ### Devices
+
 - List all connected DHCP clients
 - IP and MAC addresses
 - Device hostnames
 - Connection status
 
 ### Interfaces
+
 - Network interface status
 - Upload/download statistics
 - Active/inactive state
 
 ### Firewall
+
 - Firewall rules overview
 - Security status
 

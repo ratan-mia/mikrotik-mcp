@@ -333,3 +333,50 @@ _templates/
 .aider*
 
 mcp-config.json
+# MikroTik Dashboard specific
+mikrotik-dashboard/node_modules/
+mikrotik-dashboard/.next/
+mikrotik-dashboard/out/
+mikrotik-dashboard/.env*.local
+mikrotik-dashboard/next-env.d.ts
+mikrotik-dashboard/*.tsbuildinfo
+
+# Python scripts output
+*.backup
+backup_*.backup
+devices_*.json
+check_devices.py
+check_devices_api.py
+check_usage.py
+test_ssh.py
+mikrotik_gui.py
+
+# API server
+api_server.py
+
+# Logs
+logs/
+
+# Temporary files
+.env.local
+*.swp
+*.swo
+# MikroTik Dashboard specific
+mikrotik-dashboard/node_modules/
+mikrotik-dashboard/.next/
+mikrotik-dashboard/out/
+
+# Python test scripts
+check_*.py
+test_*.py
+mikrotik_gui.py
+
+# API server
+api_server.py
+
+# Output files
+*.backup
+devices_*.json
+
+# Logs
+logs/
