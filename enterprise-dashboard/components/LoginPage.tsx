@@ -12,8 +12,13 @@ export default function LoginPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
+            console.log('[Login] Attempting login...');
             await login(email, password);
+            console.log('[Login] Login successful, redirecting...');
+            // Navigate to home page instead of reload
+            window.location.href = '/';
         } catch (error) {
+            console.error('[Login] Login failed:', error);
             // Error is handled by store
         }
     };
